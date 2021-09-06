@@ -15,13 +15,13 @@ namespace DB_001
         {
 
 
-            //isCategoryTableExists();
-            //isProductTableExists();
+            isCategoryTableExists();
+            isProductTableExists();
 
-            //if(!IsCategoriesExists() && !IsProductsExists())
-            //{
-            //    InsertCategoriesAndProducts();
-            //}
+            if (!IsCategoriesExists() && !IsProductsExists())
+            {
+                InsertCategoriesAndProducts();
+            }
 
             isOrderTableExists();
 
@@ -38,14 +38,6 @@ namespace DB_001
             }
 
             
-
-
-
-
-
-
-
-
             Console.ReadKey();
         }
 
