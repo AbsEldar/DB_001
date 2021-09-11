@@ -31,6 +31,15 @@ namespace DB_001
                 print.PrintProducts();
                 print.PrintOrders();
                 print.PrintOrdersProducts();
+
+
+                System.Console.WriteLine("Введите имя новой категории:");
+                var catName = Console.ReadLine();
+                seedData.InsertCategory(catName);
+
+                System.Console.WriteLine("Обновлённая таблица категорий:");
+                print.PrintCategories();
+
             }
 
             

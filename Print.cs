@@ -17,8 +17,8 @@ namespace DB_001
             // using var connection = new NpgsqlConnection(connectionString);
             // connection.Open();
 
-            var sql = @"
-                SELECT id, name FROM categories ";
+            var sql = @$"
+                SELECT {Tas.id.ToString()}, {Tas.name.ToString()} FROM {Tas.categories.ToString()} ";
 
             // using var cmd = new NpgsqlCommand(sql, connection);
 
@@ -41,9 +41,9 @@ namespace DB_001
 
             }
 
-            Console.WriteLine("CATEGORIES");
+            Console.WriteLine($"{Tas.categories.ToString().ToUpper()}");
             Console.WriteLine(tps.ToStringTable(
-               new[] { "Id", "Name" },
+               new[] { Tas.id.ToString().ToUpper(), Tas.name.ToString().ToUpper() },
                a => a.Item1, a => a.Item2));
         }
 
@@ -52,8 +52,9 @@ namespace DB_001
             // using var connection = new NpgsqlConnection(connectionString);
             // connection.Open();
 
-            var sql = @"
-                SELECT id, category_id, name, description, price FROM products ";
+            var sql = @$"
+                SELECT {Tas.id.ToString()}, {Tas.category_id.ToString()}, {Tas.name.ToString()}, {Tas.description.ToString()}, 
+                {Tas.price.ToString()} FROM {Tas.products.ToString()} ";
 
             // using var cmd = new NpgsqlCommand(sql, connection);
 
@@ -79,9 +80,10 @@ namespace DB_001
 
             }
 
-            Console.WriteLine("PRODUCTS");
+            Console.WriteLine(Tas.products.ToString().ToUpper());
             Console.WriteLine(tps.ToStringTable(
-               new[] { "Id", "CategoryId", "Name", "Description", "Price" },
+               new[] { Tas.id.ToString().ToUpper(), Tas.category_id.ToString().ToUpper(), Tas.name.ToString().ToUpper(), 
+                Tas.description.ToString().ToUpper(), Tas.price.ToString().ToUpper() },
                a => a.Item1, a => a.Item2, a => a.Item3, a => a.Item4, a => a.Item5));
         }
 
@@ -90,8 +92,8 @@ namespace DB_001
             // using var connection = new NpgsqlConnection(connectionString);
             // connection.Open();
 
-            var sql = @"
-                SELECT id, user_id, created FROM orders ";
+            var sql = @$"
+                SELECT {Tas.id.ToString()}, {Tas.user_id.ToString()}, {Tas.created.ToString()} FROM {Tas.orders.ToString()} ";
 
             using var cmd = new NpgsqlCommand(sql, _connection);
 
@@ -114,9 +116,9 @@ namespace DB_001
 
 
 
-            Console.WriteLine("ORDERS");
+            Console.WriteLine(Tas.orders.ToString().ToUpper());
             Console.WriteLine(tps.ToStringTable(
-               new[] { "Id", "UserId", "Created" },
+               new[] { Tas.id.ToString().ToUpper(), Tas.user_id.ToString().ToUpper(), Tas.created.ToString().ToUpper() },
                a => a.Item1, a => a.Item2, a => a.Item3));
         }
 
@@ -126,8 +128,8 @@ namespace DB_001
             // using var connection = new NpgsqlConnection(connectionString);
             // connection.Open();
 
-            var sql = @"
-                SELECT order_id, product_id FROM order_product ";
+            var sql = @$"
+                SELECT {Tas.order_id.ToString()}, {Tas.product_id.ToString()} FROM {Tas.order_product.ToString()} ";
 
             using var cmd = new NpgsqlCommand(sql, _connection);
 
@@ -148,9 +150,9 @@ namespace DB_001
             }
 
 
-            Console.WriteLine("ORDERS_PRODUCTS");
+            Console.WriteLine(Tas.order_product.ToString().ToUpper());
             Console.WriteLine(tps.ToStringTable(
-               new[] { "OrderId", "ProductId" },
+               new[] { Tas.order_id.ToString().ToUpper(), Tas.product_id.ToString().ToUpper() },
                a => a.Item1, a => a.Item2));
         }
 

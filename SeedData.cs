@@ -367,5 +367,22 @@ namespace DB_001
             //Console.WriteLine($"Добавление прошло успешно");
         }
 
+        public void InsertCategory(string name)
+        {
+            
+            
+                var sql = @"INSERT INTO categories(name)
+                    VALUES(@name)";
+
+                using var cmdCategory = new NpgsqlCommand(sql, _connection);
+                var parameters = cmdCategory.Parameters;
+                parameters.Add(new NpgsqlParameter("name", name));
+                cmdCategory.ExecuteNonQuery();
+
+
+        }
+
+            //Console.WriteLine($"Добавление прошло успешно");
     }
+
 }
